@@ -1,9 +1,10 @@
-import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./components/Root";
 import HomePage from "./pages/HomePage";
-import SearchPage from "./pages/SearchPage";
-import DetailsPage from "./pages/DetailsPage";
-
+import SearchPage from "./pages/search/SearchPage";
+import DetailsPage from "./pages/details/DetailsPage";
+import { searchLoader } from "./pages/search/searchLoader";
+import { detailsLoader } from "./pages/details/detailsLoader";
 const router = createBrowserRouter([
   {
     path:'/',
@@ -15,11 +16,13 @@ const router = createBrowserRouter([
       }, 
       {
         path: '/search',
-        element: <SearchPage />
+        element: <SearchPage />, 
+        loader: searchLoader,
       },
       {
         path: "/packages/:name",
-        element: <DetailsPage />
+        element: <DetailsPage />,
+        loader: detailsLoader,
       }
     ]
   }
