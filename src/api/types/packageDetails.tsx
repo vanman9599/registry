@@ -1,6 +1,6 @@
 export interface PackageDetails{
     name: string;
-    descriptin: string;
+    description: string;
     readme: string;
     author:{
         email: string;
